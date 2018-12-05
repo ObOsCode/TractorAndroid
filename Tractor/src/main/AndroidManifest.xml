@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.example.tractor">
+
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_tractor_square"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_tractor_round"
+        android:supportsRtl="true"
+        android:theme="@style/tractor_theme">
+
+        <activity
+            android:name=".activitys.MainMenuActivity"
+            android:label="@string/main_menu_activity_label">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.tractor.activitys.ConnectDeviceActivity"/>
+        </activity>
+
+        <activity
+            android:name=".activitys.ManualControlRoundJoysticActivity"
+            android:label="@string/manual_control_activity_label">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.tractor.activitys.MainMenuActivity"/>
+        </activity>
+
+        <activity
+            android:name=".activitys.AutopilotMenuActivity"
+            android:label="@string/autopilot_activity_label">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.tractor.activitys.MainMenuActivity"/>
+        </activity>
+
+        <activity
+            android:name=".activitys.AddTrackActivity"
+            android:label="@string/add_track_activity_label">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.tractor.activitys.AutopilotMenuActivity"/>
+        </activity>
+
+        <activity android:name=".activitys.base.HomeButtonActivityBase">
+        </activity>
+
+        <activity android:name=".activitys.base.MenuActivityBase">
+        </activity>
+
+        <activity android:name=".activitys.base.ConnectTractorActivityBase">
+        </activity>
+
+        <activity
+            android:name=".activitys.DebugMenuActivity"
+            android:label="@string/debug_menu_activity_label">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.tractor.activitys.MainMenuActivity"/>
+        </activity>
+
+        <service
+            android:name=".services.tractor.TractorService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
+
+        <activity
+            android:name=".activitys.ConnectDeviceActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".activitys.ManualControlSlideJoystickActivity"
+                  android:screenOrientation="landscape"
+                  android:label="@string/manual_control_activity_label">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.tractor.activitys.MainMenuActivity"/>
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN"/>-->
+                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
+            <!--</intent-filter>-->
+        </activity>
+
+    </application>
+
+</manifest>
